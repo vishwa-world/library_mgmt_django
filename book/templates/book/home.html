@@ -1,0 +1,22 @@
+{% extends 'book/core.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-sm-12 mt-2">
+
+    <div class="d-flex jumbotron jumbo-color">
+        <div class="container">
+            <h1 class="text-center">Books</h1>
+        </div>
+    </div>
+    {% for book in books %}
+    <div class="jumbotron jumbotron-fluid jumbo-color">
+        <div class="container">
+            <p class=" title">{{book.title}}</p>
+            <p class="lead">{{book.author}}</p>
+            <p class="lead">{{book.pubDate}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'book/core.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-sm-12 mt-2">
+
+    <div class="d-flex jumbotron jumbo-color">
+        <div class="container">
+           <h1 class="text-center">Signup</h1>
+        </div>
+    </div>
+    <div class="col-sm-4 colorclass m-auto container">
+        <form action="" method="post" autocomplete="off" class="formfonts">
+            {% csrf_token %}
+
+            {% for fm in form %}
+            <div class="form-group mt-4">
+                {{fm.label_tag}}
+                {{fm}}
+                <small style="color:red">{{fm.errors|striptags}}</small>
+            </div>
+            {% endfor %}
+            <input type="submit" value="Sign up" class="btn btn-outline-primary mt-4">
+
+            {% if form.non_field_errors %}
+            {% for error in form.non_fields_error %}
+            {{error}}
+            {% endfor %}
+            {% endif %}
+
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
